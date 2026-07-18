@@ -9,21 +9,24 @@ const tagline = "Policy analyst. I write about the places I end up in.";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{name}</title>
   </head>
-  <body>
-    <header class="intro">
-      <h1>{name}</h1>
-      <p>{tagline}</p>
-    </header>
-
+<body>
     <main class="doors">
-      <a class="panel bio" href="/about">
-        <h2>Laksamana's Profile</h2>
-        <span class="enter">Enter</span>
-      </a>
-      <a class="panel travel" href="/blog">
-        <h2>Laksamana Journal On The Run</h2>
-        <span class="enter">Enter</span>
-      </a>
+      <header class="intro">
+        <h1>{name}</h1>
+        <p>{tagline}</p>
+      </header>
+
+      <div class="panels">
+        <a class="panel bio" href="/about">
+          <h2>Laksamana's Profile</h2>
+          <span class="enter">Enter</span>
+        </a>
+
+        <a class="panel travel" href="/blog">
+          <h2>Laksamana Journal On The Run</h2>
+          <span class="enter">Enter</span>
+        </a>
+      </div>
     </main>
   </body>
 </html>
@@ -39,7 +42,7 @@ const tagline = "Policy analyst. I write about the places I end up in.";
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 10px;
     padding: 0 1.25rem 2rem;
     box-sizing: border-box;
@@ -50,6 +53,8 @@ const tagline = "Policy analyst. I write about the places I end up in.";
     background-position: center;
   }
 
+  .panels { display: flex; flex-direction: column; gap: 10px; }
+  
   .panel {
     display: flex;
     flex-direction: column;
@@ -69,13 +74,18 @@ const tagline = "Policy analyst. I write about the places I end up in.";
     text-transform: uppercase;
   }
 
-  @media (min-width: 700px) {
+ @media (min-width: 700px) {
     main.doors {
+      display: block;
+      padding: 0;
+      background-image: none;
+      min-height: auto;
+    }
+    .intro { color: #1a1a1a; }
+    .panels {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2px;
-      padding: 0;
-      background-image: none;
       min-height: 78vh;
     }
     .panel {
